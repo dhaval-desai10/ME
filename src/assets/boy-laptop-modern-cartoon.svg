@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="120" cy="120" r="120" fill="#E0E7FF"/>
+  <ellipse cx="120" cy="210" rx="60" ry="18" fill="#A7F3D0"/>
+  <rect x="80" y="160" width="80" height="40" rx="12" fill="#6366F1"/>
+  <rect x="100" y="180" width="40" height="14" rx="4" fill="#F9FAFB"/>
+  <ellipse cx="120" cy="140" rx="38" ry="30" fill="#FBBF24"/>
+  <ellipse cx="120" cy="140" rx="32" ry="24" fill="#FDE68A"/>
+  <ellipse cx="120" cy="120" rx="24" ry="18" fill="#F9FAFB"/>
+  <ellipse cx="120" cy="120" rx="18" ry="13" fill="#F3F4F6"/>
+  <ellipse cx="120" cy="120" rx="13" ry="9" fill="#6366F1"/>
+  <rect x="108" y="100" width="24" height="24" rx="10" fill="#6366F1"/>
+  <ellipse cx="120" cy="112" rx="10" ry="7" fill="#F9FAFB"/>
+  <ellipse cx="120" cy="112" rx="6" ry="4" fill="#6366F1"/>
+  <rect x="114" y="106" width="12" height="6" rx="3" fill="#FBBF24"/>
+  <ellipse cx="120" cy="100" rx="8" ry="4" fill="#6366F1"/>
+  <ellipse cx="120" cy="100" rx="4" ry="2" fill="#F9FAFB"/>
+  <ellipse cx="120" cy="94" rx="12" ry="6" fill="#6366F1"/>
+  <ellipse cx="120" cy="94" rx="6" ry="3" fill="#F9FAFB"/>
+  <ellipse cx="120" cy="90" rx="10" ry="3" fill="#6366F1"/>
+  <ellipse cx="120" cy="90" rx="3" ry="1.5" fill="#F9FAFB"/>
+  <!-- Boy's hair -->
+  <ellipse cx="120" cy="88" rx="16" ry="6" fill="#1E293B"/>
+  <!-- Laptop screen -->
+  <rect x="100" y="170" width="40" height="10" rx="2" fill="#A7F3D0"/>
+  <!-- Hands -->
+  <ellipse cx="110" cy="170" rx="5" ry="2" fill="#FBBF24"/>
+  <ellipse cx="130" cy="170" rx="5" ry="2" fill="#FBBF24"/>
+</svg>
