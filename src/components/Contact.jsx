@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import AnimatedSection from "./ui/AnimatedSection";
+import AnimatedCard from "./ui/AnimatedCard";
+import AnimatedHeading from "./ui/AnimatedHeading";
+import StaggeredContainer from "./ui/StaggeredContainer";
+import AnimatedContainer from "./ui/AnimatedContainer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -110,314 +115,352 @@ const Contact = () => {
         <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 md:px-8 lg:px-12 sm:py-20 md:py-24">
           {/* Header */}
           <div className="mb-12 text-center sm:mb-16 md:mb-20">
-            <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8">
-              Get In <span className="text-orange-400">Touch</span>
-            </h2>
-            <p className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl sm:max-w-4xl">
-              I'm always open to discussing new opportunities, interesting
-              projects, or just having a chat about technology
-            </p>
-          </div>
-
-          <div
-            className="grid grid-cols-1 gap-8 lg:grid-cols-2 sm:gap-12"
-            style={{ gap: "2rem" }}
-          >
-            {/* Contact Information */}
-            <div
-              className="space-y-8"
+            <AnimatedHeading
+              level="h2"
+              animation="fadeUp"
+              delay={0.1}
               style={{
-                gap: "1.5rem",
-                display: "flex",
-                flexDirection: "column",
+                fontSize: "2.5rem",
+                marginBottom: "1.5rem",
+                textAlign: "center",
               }}
             >
-              {/* Contact Cards */}
-              <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-                <CardHeader
-                  style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
-                >
-                  <CardTitle
-                    className="text-xl font-bold text-orange-100"
-                    style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                  >
-                    📞 Contact Information
-                  </CardTitle>
-                </CardHeader>
-                <CardContent
-                  className="space-y-6"
-                  style={{
-                    padding: "0 1.25rem 1.25rem 1.25rem",
-                    gap: "0.75rem",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  {contactInfo.map((contact, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-4"
-                      style={{
-                        padding: "0.875rem",
-                        backgroundColor: "rgba(51, 65, 85, 0.3)",
-                        borderRadius: "0.5rem",
-                        gap: "0.875rem",
-                      }}
-                    >
-                      <div
-                        className={`w-14 h-14 bg-gradient-to-br ${contact.bgColor} border ${contact.borderColor} rounded-xl flex items-center justify-center text-2xl`}
-                        style={{
-                          width: "2.5rem",
-                          height: "2.5rem",
-                          fontSize: "1.125rem",
-                        }}
-                      >
-                        {contact.icon}
-                      </div>
-                      <div style={{ lineHeight: "1.4" }}>
-                        <p
-                          className="mb-1 font-medium text-orange-100"
-                          style={{
-                            fontSize: "0.9rem",
-                            marginBottom: "0.25rem",
-                            fontWeight: "600",
-                          }}
-                        >
-                          {contact.label}
-                        </p>
-                        <a
-                          href={contact.href}
-                          className="text-gray-300 transition-colors hover:text-orange-300"
-                          style={{ fontSize: "0.85rem", lineHeight: "1.3" }}
-                        >
-                          {contact.value}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              {/* Social Links */}
-              <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-                <CardHeader
-                  style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
-                >
-                  <CardTitle
-                    className="text-xl font-bold text-orange-100"
-                    style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                  >
-                    🔗 Connect With Me
-                  </CardTitle>
-                </CardHeader>
-                <CardContent style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}>
-                  <div
-                    className="grid grid-cols-2 gap-4"
-                    style={{ gap: "0.875rem" }}
-                  >
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        className={`flex items-center gap-3 p-4 bg-gradient-to-br ${social.bg} border ${social.border} rounded-lg hover:scale-105 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 transition-all duration-300 group`}
-                        style={{
-                          padding: "0.875rem",
-                          gap: "0.5rem",
-                          borderRadius: "0.5rem",
-                        }}
-                      >
-                        <div
-                          className={`${social.color} group-hover:text-orange-100 transition-colors`}
-                          style={{ fontSize: "1.125rem" }}
-                        >
-                          {social.icon}
-                        </div>
-                        <span
-                          className="text-sm font-medium text-gray-300 transition-colors group-hover:text-orange-100"
-                          style={{ fontSize: "0.8rem", fontWeight: "500" }}
-                        >
-                          {social.name}
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Form */}
-            <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-              <CardHeader
-                style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
+              Get In <span className="text-orange-400">Touch</span>
+            </AnimatedHeading>
+            <AnimatedSection animation="fadeUp" delay={0.3}>
+              <p
+                className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg"
+                style={{
+                  fontSize: "1.125rem",
+                  maxWidth: "600px",
+                  textAlign: "center",
+                  margin: "0 auto",
+                }}
               >
-                <CardTitle
-                  className="text-xl font-bold text-orange-100"
-                  style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                >
-                  📧 Send Me a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}>
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                  style={{
-                    gap: "1rem",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div style={{ marginBottom: "1rem" }}>
-                    <label
-                      htmlFor="name"
-                      className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.85rem",
-                        marginBottom: "0.4rem",
-                        fontWeight: "500",
-                      }}
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="Enter your full name"
-                      style={{ padding: "0.65rem", fontSize: "0.85rem" }}
-                    />
-                  </div>
-
-                  <div style={{ marginBottom: "1.25rem" }}>
-                    <label
-                      htmlFor="email"
-                      className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="Enter your email address"
-                      style={{ padding: "0.75rem", fontSize: "0.9rem" }}
-                    />
-                  </div>
-
-                  <div style={{ marginBottom: "1.25rem" }}>
-                    <label
-                      htmlFor="subject"
-                      className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
-                    >
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="What's this about?"
-                      style={{ padding: "0.75rem", fontSize: "0.9rem" }}
-                    />
-                  </div>
-
-                  <div style={{ marginBottom: "1.5rem" }}>
-                    <label
-                      htmlFor="message"
-                      className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg resize-none bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                      placeholder="Tell me about your project or just say hello!"
-                      style={{
-                        padding: "0.75rem",
-                        fontSize: "0.9rem",
-                        minHeight: "6rem",
-                      }}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="flex items-center justify-center w-full gap-3 px-6 py-4 text-lg font-semibold text-white transition-all duration-300 bg-orange-600 border-2 border-orange-600 hover:bg-orange-700 hover:border-orange-700"
-                    style={{
-                      padding: "1rem 1.25rem",
-                      fontSize: "1rem",
-                      gap: "0.5rem",
-                    }}
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      style={{ width: "1.25rem", height: "1.25rem" }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                I'm always open to discussing new opportunities, interesting
+                projects, or just having a chat about technology
+              </p>
+            </AnimatedSection>
           </div>
 
-          {/* Quick Response Note */}
-          <Card
-            className="mt-16 text-center transition-all duration-300 border-2 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm border-slate-600/30 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 rounded-xl"
-            style={{ marginTop: "2rem" }}
-          >
-            <CardContent className="p-8" style={{ padding: "1.25rem" }}>
-              <p
-                className="text-lg leading-relaxed text-gray-300"
-                style={{ fontSize: "0.9rem", lineHeight: "1.4" }}
+          <AnimatedContainer stagger={0.2}>
+            <div
+              className="grid grid-cols-1 gap-8 lg:grid-cols-2 sm:gap-12"
+              style={{ gap: "2rem" }}
+            >
+              {/* Contact Information */}
+              <div
+                className="space-y-8"
+                style={{
+                  gap: "1.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
               >
-                💬 <strong className="text-orange-100">Quick Response:</strong>{" "}
-                I typically respond to messages within 24 hours. For urgent
-                matters, feel free to reach out via phone or WhatsApp.
-              </p>
-            </CardContent>
-          </Card>
+                {/* Contact Cards */}
+                <AnimatedCard delay={0.1}>
+                  <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
+                    <CardHeader
+                      style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
+                    >
+                      <CardTitle
+                        className="text-xl font-bold text-orange-100"
+                        style={{
+                          fontSize: "1.125rem",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        📞 Contact Information
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent
+                      className="space-y-6"
+                      style={{
+                        padding: "0 1.25rem 1.25rem 1.25rem",
+                        gap: "0.75rem",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      {contactInfo.map((contact, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-4"
+                          style={{
+                            padding: "0.875rem",
+                            backgroundColor: "rgba(51, 65, 85, 0.3)",
+                            borderRadius: "0.5rem",
+                            gap: "0.875rem",
+                          }}
+                        >
+                          <div
+                            className={`w-14 h-14 bg-gradient-to-br ${contact.bgColor} border ${contact.borderColor} rounded-xl flex items-center justify-center text-2xl`}
+                            style={{
+                              width: "2.5rem",
+                              height: "2.5rem",
+                              fontSize: "1.125rem",
+                            }}
+                          >
+                            {contact.icon}
+                          </div>
+                          <div style={{ lineHeight: "1.4" }}>
+                            <p
+                              className="mb-1 font-medium text-orange-100"
+                              style={{
+                                fontSize: "0.9rem",
+                                marginBottom: "0.25rem",
+                                fontWeight: "600",
+                              }}
+                            >
+                              {contact.label}
+                            </p>
+                            <a
+                              href={contact.href}
+                              className="text-gray-300 transition-colors hover:text-orange-300"
+                              style={{ fontSize: "0.85rem", lineHeight: "1.3" }}
+                            >
+                              {contact.value}
+                            </a>
+                          </div>
+                        </div>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+
+                {/* Social Links */}
+                <AnimatedCard delay={0.3}>
+                  <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
+                    <CardHeader
+                      style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
+                    >
+                      <CardTitle
+                        className="text-xl font-bold text-orange-100"
+                        style={{
+                          fontSize: "1.125rem",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        🔗 Connect With Me
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent
+                      style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}
+                    >
+                      <div
+                        className="grid grid-cols-2 gap-4"
+                        style={{ gap: "0.875rem" }}
+                      >
+                        {socialLinks.map((social, index) => (
+                          <a
+                            key={index}
+                            href={social.href}
+                            className={`flex items-center gap-3 p-4 bg-gradient-to-br ${social.bg} border ${social.border} rounded-lg hover:scale-105 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 transition-all duration-300 group`}
+                            style={{
+                              padding: "0.875rem",
+                              gap: "0.5rem",
+                              borderRadius: "0.5rem",
+                            }}
+                          >
+                            <div
+                              className={`${social.color} group-hover:text-orange-100 transition-colors`}
+                              style={{ fontSize: "1.125rem" }}
+                            >
+                              {social.icon}
+                            </div>
+                            <span
+                              className="text-sm font-medium text-gray-300 transition-colors group-hover:text-orange-100"
+                              style={{ fontSize: "0.8rem", fontWeight: "500" }}
+                            >
+                              {social.name}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimatedCard>
+              </div>
+
+              {/* Contact Form */}
+              <AnimatedCard delay={0.5}>
+                <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
+                  <CardHeader
+                    style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
+                  >
+                    <CardTitle
+                      className="text-xl font-bold text-orange-100"
+                      style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
+                    >
+                      📧 Send Me a Message
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}>
+                    <form
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                      style={{
+                        gap: "1rem",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div style={{ marginBottom: "1rem" }}>
+                        <label
+                          htmlFor="name"
+                          className="block mb-3 text-sm font-medium text-orange-100"
+                          style={{
+                            fontSize: "0.85rem",
+                            marginBottom: "0.4rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                          placeholder="Enter your full name"
+                          style={{ padding: "0.65rem", fontSize: "0.85rem" }}
+                        />
+                      </div>
+
+                      <div style={{ marginBottom: "1.25rem" }}>
+                        <label
+                          htmlFor="email"
+                          className="block mb-3 text-sm font-medium text-orange-100"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                          placeholder="Enter your email address"
+                          style={{ padding: "0.75rem", fontSize: "0.9rem" }}
+                        />
+                      </div>
+
+                      <div style={{ marginBottom: "1.25rem" }}>
+                        <label
+                          htmlFor="subject"
+                          className="block mb-3 text-sm font-medium text-orange-100"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Subject
+                        </label>
+                        <input
+                          type="text"
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                          placeholder="What's this about?"
+                          style={{ padding: "0.75rem", fontSize: "0.9rem" }}
+                        />
+                      </div>
+
+                      <div style={{ marginBottom: "1.5rem" }}>
+                        <label
+                          htmlFor="message"
+                          className="block mb-3 text-sm font-medium text-orange-100"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            fontWeight: "500",
+                          }}
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={5}
+                          className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg resize-none bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                          placeholder="Tell me about your project or just say hello!"
+                          style={{
+                            padding: "0.75rem",
+                            fontSize: "0.9rem",
+                            minHeight: "6rem",
+                          }}
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="flex items-center justify-center w-full gap-3 px-6 py-4 text-lg font-semibold text-white transition-all duration-300 bg-orange-600 border-2 border-orange-600 hover:bg-orange-700 hover:border-orange-700"
+                        style={{
+                          padding: "1rem 1.25rem",
+                          fontSize: "1rem",
+                          gap: "0.5rem",
+                        }}
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          style={{ width: "1.25rem", height: "1.25rem" }}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                          />
+                        </svg>
+                        Send Message
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </AnimatedCard>
+            </div>
+          </AnimatedContainer>
+
+          {/* Quick Response Note */}
+          <AnimatedSection animation="fadeUp" delay={0.8}>
+            <Card
+              className="mt-16 text-center transition-all duration-300 border-2 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm border-slate-600/30 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 rounded-xl"
+              style={{ marginTop: "2rem" }}
+            >
+              <CardContent className="p-8" style={{ padding: "1.25rem" }}>
+                <p
+                  className="text-lg leading-relaxed text-gray-300"
+                  style={{ fontSize: "0.9rem", lineHeight: "1.4" }}
+                >
+                  💬{" "}
+                  <strong className="text-orange-100">Quick Response:</strong> I
+                  typically respond to messages within 24 hours. For urgent
+                  matters, feel free to reach out via phone or WhatsApp.
+                </p>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
         </div>
       </div>
     </div>

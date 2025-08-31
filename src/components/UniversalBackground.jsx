@@ -2,7 +2,10 @@ import React from "react";
 
 const UniversalBackground = ({ children }) => {
   return (
-    <div className="relative min-h-screen" style={{ minHeight: "100vh" }}>
+    <div
+      className="relative min-h-screen"
+      style={{ minHeight: "100vh", position: "relative" }}
+    >
       {/* Universal Dark Blue Background for All Pages */}
       <div
         className="fixed inset-0 z-0 w-full h-full"

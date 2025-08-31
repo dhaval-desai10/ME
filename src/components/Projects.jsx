@@ -3,6 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FiX, FiExternalLink, FiGithub } from "react-icons/fi";
+import AnimatedSection from "@/components/ui/AnimatedSection";
+import AnimatedCard from "@/components/ui/AnimatedCard";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
+import AnimatedContainer from "@/components/ui/AnimatedContainer";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -106,174 +110,183 @@ const Projects = () => {
             className="mb-12 text-center sm:mb-16"
             style={{ marginBottom: "3rem" }}
           >
-            <h2
-              className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8"
+            <AnimatedHeading
+              level="h2"
+              animation="fadeLeft"
+              className="mb-6 text-3xl font-bold text-white sm:mb-8"
               style={{
-                fontSize: "clamp(2rem, 5vw, 3rem)",
+                fontSize: "2.5rem",
                 marginBottom: "1.5rem",
+                textAlign: "center",
               }}
             >
               My <span className="text-orange-400">Projects</span>
-            </h2>
-            <p
-              className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl sm:max-w-4xl"
-              style={{
-                fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-                maxWidth: "600px",
-              }}
-            >
-              Here are some of the projects I've worked on, showcasing my skills
-              in full-stack development
-            </p>
-          </div>
-
-          {/* Projects Grid - Medium Sized Cards */}
-          <div
-            className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-            style={{
-              marginBottom: "3rem",
-              maxWidth: "1200px",
-              margin: "0 auto 3rem auto",
-              gap: "1.5rem",
-            }}
-          >
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden transition-all duration-300 border shadow-xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group hover:scale-105"
+            </AnimatedHeading>
+            <AnimatedSection animation="fadeUp" delay={0.3}>
+              <p
+                className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg"
                 style={{
-                  height: "400px",
-                  display: "flex",
-                  flexDirection: "column",
+                  fontSize: "1.125rem",
+                  maxWidth: "600px",
+                  textAlign: "center",
+                  margin: "0 auto",
                 }}
               >
-                {/* Project Image */}
-                <div
-                  className="relative overflow-hidden"
-                  style={{ height: "180px" }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                  <div className="absolute top-3 right-3">
-                    <Badge
-                      className="px-3 py-1 text-xs font-medium text-orange-100 border bg-orange-800/90 border-orange-600/50 backdrop-blur-sm"
-                      style={{
-                        padding: "0.25rem 0.75rem",
-                        fontSize: "0.75rem",
-                      }}
-                    >
-                      {project.status}
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900/80 to-transparent">
-                    <span
-                      className="text-sm font-medium text-orange-300"
-                      style={{ fontSize: "0.875rem" }}
-                    >
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
+                Here are some of the projects I've worked on, showcasing my
+                skills in full-stack development
+              </p>
+            </AnimatedSection>
+          </div>
 
-                {/* Card Content */}
-                <CardContent
-                  className="flex flex-col justify-between flex-1 p-4"
+          {/* Projects Grid - Medium Sized Cards with Staggered Animation */}
+          <AnimatedContainer staggerDelay={0.2}>
+            <div
+              className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+              style={{
+                marginBottom: "3rem",
+                maxWidth: "1200px",
+                margin: "0 auto 3rem auto",
+                gap: "1.5rem",
+              }}
+            >
+              {projects.map((project, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden transition-all duration-300 border shadow-xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group hover:scale-105"
                   style={{
-                    padding: "1rem",
-                    flex: "1",
+                    height: "400px",
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
-                  <div>
-                    <h3
-                      className="mb-2 text-lg font-bold text-orange-100 line-clamp-2"
+                  {/* Project Image */}
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ height: "180px" }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
                       style={{
-                        fontSize: "1.125rem",
-                        marginBottom: "0.5rem",
-                        lineHeight: "1.3",
-                        display: "-webkit-box",
-                        WebkitLineClamp: "2",
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
                       }}
-                    >
-                      {project.title}
-                    </h3>
-
-                    <p
-                      className="mb-3 text-sm text-gray-300 line-clamp-2"
-                      style={{
-                        fontSize: "0.875rem",
-                        marginBottom: "0.75rem",
-                        lineHeight: "1.4",
-                        display: "-webkit-box",
-                        WebkitLineClamp: "2",
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {project.shortDescription}
-                    </p>
-
-                    {/* Tech Stack - Show only 3 main techs */}
-                    <div
-                      className="flex flex-wrap gap-1 mb-4"
-                      style={{ gap: "0.25rem", marginBottom: "1rem" }}
-                    >
-                      {project.tech.slice(0, 3).map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          className="px-2 py-1 text-xs border bg-slate-800/60 border-slate-600/40 text-slate-200"
-                          style={{
-                            padding: "0.25rem 0.5rem",
-                            fontSize: "0.7rem",
-                          }}
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                      {project.tech.length > 3 && (
-                        <Badge
-                          className="px-2 py-1 text-xs text-orange-200 border bg-orange-800/40 border-orange-600/50"
-                          style={{
-                            padding: "0.25rem 0.5rem",
-                            fontSize: "0.7rem",
-                          }}
-                        >
-                          +{project.tech.length - 3}
-                        </Badge>
-                      )}
+                    />
+                    <div className="absolute top-3 right-3">
+                      <Badge
+                        className="px-3 py-1 text-xs font-medium text-orange-100 border bg-orange-800/90 border-orange-600/50 backdrop-blur-sm"
+                        style={{
+                          padding: "0.25rem 0.75rem",
+                          fontSize: "0.75rem",
+                        }}
+                      >
+                        {project.status}
+                      </Badge>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900/80 to-transparent">
+                      <span
+                        className="text-sm font-medium text-orange-300"
+                        style={{ fontSize: "0.875rem" }}
+                      >
+                        {project.category}
+                      </span>
                     </div>
                   </div>
 
-                  {/* View Details Button */}
-                  <Button
-                    onClick={() => setSelectedProject(project)}
-                    className="w-full text-sm font-medium text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-0"
+                  {/* Card Content */}
+                  <CardContent
+                    className="flex flex-col justify-between flex-1 p-4"
                     style={{
-                      padding: "0.75rem 1rem",
-                      fontSize: "0.875rem",
-                      width: "100%",
-                      outline: "none",
-                      border: "none",
-                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                      padding: "1rem",
+                      flex: "1",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
-                    View Details
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                    <div>
+                      <h3
+                        className="mb-2 text-lg font-bold text-orange-100 line-clamp-2"
+                        style={{
+                          fontSize: "1.125rem",
+                          marginBottom: "0.5rem",
+                          lineHeight: "1.3",
+                          display: "-webkit-box",
+                          WebkitLineClamp: "2",
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {project.title}
+                      </h3>
+
+                      <p
+                        className="mb-3 text-sm text-gray-300 line-clamp-2"
+                        style={{
+                          fontSize: "0.875rem",
+                          marginBottom: "0.75rem",
+                          lineHeight: "1.4",
+                          display: "-webkit-box",
+                          WebkitLineClamp: "2",
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {project.shortDescription}
+                      </p>
+
+                      {/* Tech Stack - Show only 3 main techs */}
+                      <div
+                        className="flex flex-wrap gap-1 mb-4"
+                        style={{ gap: "0.25rem", marginBottom: "1rem" }}
+                      >
+                        {project.tech.slice(0, 3).map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            className="px-2 py-1 text-xs border bg-slate-800/60 border-slate-600/40 text-slate-200"
+                            style={{
+                              padding: "0.25rem 0.5rem",
+                              fontSize: "0.7rem",
+                            }}
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                        {project.tech.length > 3 && (
+                          <Badge
+                            className="px-2 py-1 text-xs text-orange-200 border bg-orange-800/40 border-orange-600/50"
+                            style={{
+                              padding: "0.25rem 0.5rem",
+                              fontSize: "0.7rem",
+                            }}
+                          >
+                            +{project.tech.length - 3}
+                          </Badge>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* View Details Button */}
+                    <Button
+                      onClick={() => setSelectedProject(project)}
+                      className="w-full text-sm font-medium text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-0"
+                      style={{
+                        padding: "0.75rem 1rem",
+                        fontSize: "0.875rem",
+                        width: "100%",
+                        outline: "none",
+                        border: "none",
+                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </AnimatedContainer>
 
           {/* Project Details Modal */}
           {selectedProject && (
@@ -493,54 +506,56 @@ const Projects = () => {
           )}
 
           {/* Call to Action */}
-          <Card
-            className="text-center transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl"
-            style={{ maxWidth: "600px", margin: "0 auto" }}
-          >
-            <CardContent style={{ padding: "2rem" }}>
-              <h3
-                className="mb-4 text-2xl font-bold text-orange-100 md:text-3xl"
-                style={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-              >
-                Want to see more of my work?
-              </h3>
-              <p
-                className="max-w-2xl mx-auto mb-6 text-lg leading-relaxed text-gray-300"
-                style={{
-                  fontSize: "1rem",
-                  marginBottom: "1.5rem",
-                  maxWidth: "400px",
-                }}
-              >
-                Check out my GitHub for more projects and contributions.
-              </p>
-              <Button
-                size="lg"
-                className="px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-0"
-                style={{
-                  padding: "1rem 2rem",
-                  fontSize: "1rem",
-                  outline: "none",
-                  border: "none",
-                  boxShadow: "0 6px 10px -1px rgba(0, 0, 0, 0.15)",
-                }}
-              >
-                <svg
-                  className="w-6 h-6 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+          <AnimatedSection animation="fadeUp" delay={0.2}>
+            <Card
+              className="text-center transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl"
+              style={{ maxWidth: "600px", margin: "0 auto" }}
+            >
+              <CardContent style={{ padding: "2rem" }}>
+                <h3
+                  className="mb-4 text-2xl font-bold text-orange-100 md:text-3xl"
+                  style={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+                >
+                  Want to see more of my work?
+                </h3>
+                <p
+                  className="max-w-2xl mx-auto mb-6 text-lg leading-relaxed text-gray-300"
                   style={{
-                    width: "20px",
-                    height: "20px",
-                    marginRight: "0.75rem",
+                    fontSize: "1rem",
+                    marginBottom: "1.5rem",
+                    maxWidth: "400px",
                   }}
                 >
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                View GitHub Profile
-              </Button>
-            </CardContent>
-          </Card>
+                  Check out my GitHub for more projects and contributions.
+                </p>
+                <Button
+                  size="lg"
+                  className="px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-0"
+                  style={{
+                    padding: "1rem 2rem",
+                    fontSize: "1rem",
+                    outline: "none",
+                    border: "none",
+                    boxShadow: "0 6px 10px -1px rgba(0, 0, 0, 0.15)",
+                  }}
+                >
+                  <svg
+                    className="w-6 h-6 mr-3"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "0.75rem",
+                    }}
+                  >
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                  View GitHub Profile
+                </Button>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
         </div>
       </div>
     </div>
