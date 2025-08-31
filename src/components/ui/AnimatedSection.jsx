@@ -8,12 +8,12 @@ const AnimatedSection = ({
   children,
   animation = "fadeUp",
   delay = 0,
-  duration = 0.8,
+  duration = 0.5,
   trigger = null,
   className = "",
   stagger = 0,
-  once = true,
-  threshold = 0.1,
+  once = false,
+  threshold = 0.2,
   ...props
 }) => {
   const sectionRef = useRef(null);
@@ -66,37 +66,55 @@ const AnimatedSection = ({
     // Set initial state
     gsap.set(element, fromState);
 
-    // Create scroll trigger animation
+    // Create bidirectional scroll trigger animation
     const scrollTrigger = ScrollTrigger.create({
       trigger: trigger || element,
       start: `top ${100 - threshold * 100}%`,
-      end: "bottom top",
-      once: once,
+      end: "bottom 30%",
       onEnter: () => {
         if (animation === "staggerUp" && element.children.length > 0) {
           gsap.fromTo(element.children, fromState, {
             ...toState,
-            ease: "power3.out",
+            duration: 0.5,
+            ease: "power2.out",
           });
         } else {
           gsap.to(element, {
             ...toState,
-            ease: "power3.out",
+            duration: 0.5,
+            ease: "power2.out",
           });
         }
       },
       onLeave: () => {
-        if (!once) {
-          gsap.set(element, fromState);
-        }
+        // Only fade slightly on leave to prevent jarring disappearance
+        gsap.to(element, {
+          opacity: 0.2,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
       },
       onEnterBack: () => {
-        if (!once) {
+        if (animation === "staggerUp" && element.children.length > 0) {
+          gsap.fromTo(element.children, fromState, {
+            ...toState,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        } else {
           gsap.to(element, {
             ...toState,
-            ease: "power3.out",
+            duration: 0.4,
+            ease: "power2.out",
           });
         }
+      },
+      onLeaveBack: () => {
+        gsap.to(element, {
+          ...fromState,
+          duration: 0.4,
+          ease: "power2.inOut",
+        });
       },
     });
 

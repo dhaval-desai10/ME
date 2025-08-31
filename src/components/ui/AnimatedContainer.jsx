@@ -19,23 +19,34 @@ const AnimatedContainer = ({
     // Set initial state for all children
     gsap.set(element.children, {
       opacity: 0,
-      y: 20,
-      scale: 0.98,
+      y: 15,
+      scale: 0.99,
     });
 
-    // Create scroll trigger animation
+    // Create simple, stable scroll trigger animation
     const scrollTrigger = ScrollTrigger.create({
       trigger: element,
-      start: "top 85%",
-      once: true,
+      start: "top 90%",
+      end: "bottom 20%",
+      toggleActions: "play none play reverse",
       onEnter: () => {
         gsap.to(element.children, {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.6,
+          duration: 0.5,
           stagger: staggerDelay,
-          ease: "power3.out",
+          ease: "power2.out",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(element.children, {
+          opacity: 0,
+          y: 15,
+          scale: 0.99,
+          duration: 0.3,
+          stagger: staggerDelay * 0.5,
+          ease: "power2.inOut",
         });
       },
     });

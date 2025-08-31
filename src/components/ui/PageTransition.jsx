@@ -14,12 +14,12 @@ const PageTransition = ({ children, className = "" }) => {
       y: 20,
     });
 
-    // Animate in
+    // Animate in with faster, smoother transition
     gsap.to(element, {
       opacity: 1,
       y: 0,
-      duration: 0.6,
-      ease: "power3.out",
+      duration: 0.4,
+      ease: "power2.out",
     });
 
     return () => {

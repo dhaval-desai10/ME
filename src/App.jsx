@@ -7,9 +7,15 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import UniversalBackground from "./components/UniversalBackground";
 import PageTransition from "./components/ui/PageTransition";
+import { initScrollOptimizations } from "./lib/scrollOptimizations";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    // Initialize scroll optimizations on component mount
+    initScrollOptimizations();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +43,7 @@ const App = () => {
           <main
             className="relative z-10"
             style={{ position: "relative", zIndex: 10 }}
+            data-scroll-container
           >
             {/* Home Section */}
             <section

@@ -258,6 +258,11 @@ function Home() {
             >
               <Button
                 size="lg"
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="w-full px-8 py-3 text-base font-semibold text-white transition-all duration-300 transform bg-orange-600 shadow-lg hover:bg-orange-700 sm:px-12 md:px-16 sm:py-4 md:py-6 sm:text-lg rounded-xl hover:shadow-xl hover:scale-105 sm:w-auto focus:outline-none focus:ring-0 border-0"
                 style={{
                   padding: "0.875rem 1.5rem",
@@ -281,6 +286,11 @@ function Home() {
 
               <Button
                 size="lg"
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="w-full px-8 py-3 text-base font-semibold text-orange-100 transition-all duration-300 transform bg-slate-800/60 hover:bg-slate-700 sm:px-12 md:px-16 sm:py-4 md:py-6 sm:text-lg rounded-xl hover:scale-105 sm:w-auto focus:outline-none focus:ring-0 border-0"
                 style={{
                   padding: "0.875rem 1.5rem",
@@ -305,7 +315,9 @@ function Home() {
               }}
             >
               <a
-                href="#"
+                href="https://www.linkedin.com/in/dhaval-desai-82122028a/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 text-gray-400 transition-all duration-300 transform border border-transparent sm:p-4 md:p-6 hover:text-orange-300 hover:scale-110 rounded-xl hover:bg-orange-900/20 hover:border-orange-800/30"
                 title="LinkedIn"
                 style={{ padding: "0.75rem" }}
@@ -313,7 +325,9 @@ function Home() {
                 <FiLinkedin size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8" />
               </a>
               <a
-                href="#"
+                href="https://github.com/dhaval-desai10"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 text-gray-400 transition-all duration-300 transform border border-transparent sm:p-4 md:p-6 hover:text-orange-300 hover:scale-110 rounded-xl hover:bg-orange-900/20 hover:border-orange-800/30"
                 title="GitHub"
                 style={{ padding: "0.75rem" }}

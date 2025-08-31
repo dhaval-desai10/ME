@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import AnimatedContainer from "@/components/ui/AnimatedContainer";
+import SequentialCards from "@/components/ui/SequentialCards";
 
 const Skills = () => {
   const skillCategories = [
@@ -99,94 +99,90 @@ const Skills = () => {
           </div>
 
           {/* Skills Grid - Responsive with Staggered Animation */}
-          <AnimatedContainer staggerDelay={0.2}>
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
-              style={{ gap: "1.5rem", marginBottom: "3rem" }}
-            >
-              {skillCategories.map((category, index) => (
-                <Card
-                  key={index}
-                  className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
-                  style={{
-                    padding: "1.5rem",
-                    maxWidth: "400px",
-                    margin: "0 auto",
-                  }}
+          <SequentialCards
+            staggerDelay={0.12}
+            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+            triggerStart="top 85%"
+          >
+            {skillCategories.map((category, index) => (
+              <Card
+                key={index}
+                className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+                style={{
+                  padding: "1.5rem",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                }}
+              >
+                <CardHeader
+                  style={{ padding: "1rem", paddingBottom: "0.75rem" }}
                 >
-                  <CardHeader
-                    style={{ padding: "1rem", paddingBottom: "0.75rem" }}
-                  >
-                    <div className="flex items-center" style={{ gap: "1rem" }}>
-                      <div
-                        className="shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90"
+                  <div className="flex items-center" style={{ gap: "1rem" }}>
+                    <div
+                      className="shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90"
+                      style={{
+                        padding: "0.75rem",
+                        minWidth: "50px",
+                        minHeight: "50px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <span style={{ fontSize: "1.5rem" }}>
+                        {category.icon}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle
+                        className="text-2xl font-bold text-orange-100 transition-colors group-hover:text-orange-200"
                         style={{
-                          padding: "0.75rem",
-                          minWidth: "50px",
-                          minHeight: "50px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
+                          marginBottom: "0.5rem",
+                          fontSize: "1.125rem",
+                          lineHeight: "1.4",
                         }}
                       >
-                        <span style={{ fontSize: "1.5rem" }}>
-                          {category.icon}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle
-                          className="text-2xl font-bold text-orange-100 transition-colors group-hover:text-orange-200"
-                          style={{
-                            marginBottom: "0.5rem",
-                            fontSize: "1.125rem",
-                            lineHeight: "1.4",
-                          }}
-                        >
-                          {category.title}
-                        </CardTitle>
-                        <p
-                          className="text-base leading-relaxed text-gray-400"
-                          style={{ fontSize: "0.875rem", lineHeight: "1.5" }}
-                        >
-                          {category.description}
-                        </p>
-                      </div>
+                        {category.title}
+                      </CardTitle>
+                      <p
+                        className="text-base leading-relaxed text-gray-400"
+                        style={{ fontSize: "0.875rem", lineHeight: "1.5" }}
+                      >
+                        {category.description}
+                      </p>
                     </div>
-                  </CardHeader>
-                  <CardContent style={{ padding: "0 1rem 1rem 1rem" }}>
-                    <div
-                      className="grid grid-cols-2"
-                      style={{ gap: "0.75rem" }}
-                    >
-                      {category.skills.map((skill, skillIndex) => (
+                  </div>
+                </CardHeader>
+                <CardContent style={{ padding: "0 1rem 1rem 1rem" }}>
+                  <div className="grid grid-cols-2" style={{ gap: "0.75rem" }}>
+                    {category.skills.map((skill, skillIndex) => (
+                      <div
+                        key={skillIndex}
+                        className="transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-600/40 hover:bg-orange-800/30 hover:border-orange-600/50 hover:shadow-lg group/skill"
+                        style={{ padding: "0.75rem" }}
+                      >
                         <div
-                          key={skillIndex}
-                          className="transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-600/40 hover:bg-orange-800/30 hover:border-orange-600/50 hover:shadow-lg group/skill"
-                          style={{ padding: "0.75rem" }}
+                          className="flex items-center"
+                          style={{ gap: "0.5rem" }}
                         >
                           <div
-                            className="flex items-center"
-                            style={{ gap: "0.5rem" }}
+                            className="w-3 h-3 rounded-full shadow-sm bg-gradient-to-r from-orange-400 to-orange-500"
+                            style={{ width: "8px", height: "8px" }}
+                          ></div>
+                          <span
+                            className="text-sm font-medium transition-colors text-slate-200 group-hover/skill:text-orange-100"
+                            style={{ fontSize: "0.8rem" }}
                           >
-                            <div
-                              className="w-3 h-3 rounded-full shadow-sm bg-gradient-to-r from-orange-400 to-orange-500"
-                              style={{ width: "8px", height: "8px" }}
-                            ></div>
-                            <span
-                              className="text-sm font-medium transition-colors text-slate-200 group-hover/skill:text-orange-100"
-                              style={{ fontSize: "0.8rem" }}
-                            >
-                              {skill}
-                            </span>
-                          </div>
+                            {skill}
+                          </span>
                         </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </AnimatedContainer>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </SequentialCards>
 
           {/* Achievements */}
           <div style={{ marginBottom: "4rem" }}>
@@ -198,72 +194,72 @@ const Skills = () => {
             >
               Achievements
             </AnimatedHeading>
-            <AnimatedContainer staggerDelay={0.15}>
-              <div
-                className="grid grid-cols-1 md:grid-cols-3"
-                style={{ gap: "1.5rem", maxWidth: "900px", margin: "0 auto" }}
-              >
-                {achievements.map((achievement, index) => (
-                  <Card
-                    key={index}
-                    className="text-center transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
-                    style={{ maxWidth: "280px", margin: "0 auto" }}
-                  >
-                    <CardContent style={{ padding: "1.5rem" }}>
+            <SequentialCards
+              staggerDelay={0.1}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+              style={{ maxWidth: "900px", margin: "0 auto" }}
+              triggerStart="top 85%"
+            >
+              {achievements.map((achievement, index) => (
+                <Card
+                  key={index}
+                  className="text-center transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+                  style={{ margin: "0 auto" }}
+                >
+                  <CardContent style={{ padding: "1.5rem" }}>
+                    <div
+                      className="flex flex-col items-center"
+                      style={{ gap: "1rem" }}
+                    >
                       <div
-                        className="flex flex-col items-center"
-                        style={{ gap: "1rem" }}
+                        className="transition-transform duration-300 shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90 group-hover:scale-105"
+                        style={{
+                          padding: "1rem",
+                          width: "50px",
+                          height: "50px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <span style={{ fontSize: "1.5rem" }}>
+                          {achievement.icon}
+                        </span>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.5rem",
+                        }}
                       >
                         <div
-                          className="transition-transform duration-300 shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90 group-hover:scale-105"
-                          style={{
-                            padding: "1rem",
-                            width: "50px",
-                            height: "50px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
+                          className="text-4xl font-bold text-orange-400 transition-colors group-hover:text-orange-300"
+                          style={{ fontSize: "2rem" }}
                         >
-                          <span style={{ fontSize: "1.5rem" }}>
-                            {achievement.icon}
-                          </span>
+                          {achievement.number}
                         </div>
                         <div
+                          className="text-lg font-semibold text-orange-100"
+                          style={{ fontSize: "1rem" }}
+                        >
+                          {achievement.label}
+                        </div>
+                        <div
+                          className="text-sm text-gray-400 border rounded-lg bg-slate-800/50 border-slate-700/30"
                           style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "0.5rem",
+                            padding: "0.375rem 0.75rem",
+                            fontSize: "0.8rem",
                           }}
                         >
-                          <div
-                            className="text-4xl font-bold text-orange-400 transition-colors group-hover:text-orange-300"
-                            style={{ fontSize: "2rem" }}
-                          >
-                            {achievement.number}
-                          </div>
-                          <div
-                            className="text-lg font-semibold text-orange-100"
-                            style={{ fontSize: "1rem" }}
-                          >
-                            {achievement.label}
-                          </div>
-                          <div
-                            className="text-sm text-gray-400 border rounded-lg bg-slate-800/50 border-slate-700/30"
-                            style={{
-                              padding: "0.375rem 0.75rem",
-                              fontSize: "0.8rem",
-                            }}
-                          >
-                            {achievement.desc}
-                          </div>
+                          {achievement.desc}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </AnimatedContainer>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </SequentialCards>
           </div>
 
           {/* Learning Journey */}

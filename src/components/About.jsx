@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { FiExternalLink } from "react-icons/fi";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -422,6 +424,45 @@ const About = () => {
                 </div>
               </CardContent>
             </Card>
+          </AnimatedSection>
+
+          {/* Coding Profiles Section */}
+          <AnimatedSection animation="fadeUp" delay={1.0}>
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-orange-100 mb-6">
+                🔗 Connect with me on coding platforms
+              </h3>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-lg mx-auto">
+                <Button
+                  asChild
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  <a
+                    href="https://leetcode.com/u/Dhaval_Desai_dd/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    <span>LeetCode Profile</span>
+                    <FiExternalLink size={16} />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  <a
+                    href="https://www.codechef.com/users/dhaval_desai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    <span>CodeChef Profile</span>
+                    <FiExternalLink size={16} />
+                  </a>
+                </Button>
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </div>

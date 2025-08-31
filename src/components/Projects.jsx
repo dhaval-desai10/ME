@@ -6,7 +6,7 @@ import { FiX, FiExternalLink, FiGithub } from "react-icons/fi";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import AnimatedContainer from "@/components/ui/AnimatedContainer";
+import SequentialCards from "@/components/ui/SequentialCards";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -139,154 +139,155 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid - Medium Sized Cards with Staggered Animation */}
-          <AnimatedContainer staggerDelay={0.2}>
-            <div
-              className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-              style={{
-                marginBottom: "3rem",
-                maxWidth: "1200px",
-                margin: "0 auto 3rem auto",
-                gap: "1.5rem",
-              }}
-            >
-              {projects.map((project, index) => (
-                <Card
-                  key={index}
-                  className="overflow-hidden transition-all duration-300 border shadow-xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group hover:scale-105"
+          <SequentialCards
+            staggerDelay={0.12}
+            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6"
+            triggerStart="top 80%"
+            style={{
+              marginBottom: "3rem",
+              maxWidth: "1200px",
+              margin: "0 auto 3rem auto",
+            }}
+          >
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden transition-all duration-300 border shadow-xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group hover:scale-[1.02] md:hover:scale-105"
+                style={{
+                  height: "auto",
+                  minHeight: "350px",
+                  maxHeight: "450px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {/* Project Image */}
+                <div
+                  className="relative overflow-hidden"
+                  style={{ height: "160px", minHeight: "140px" }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className="absolute top-3 right-3">
+                    <Badge
+                      className="px-3 py-1 text-xs font-medium text-orange-100 border bg-orange-800/90 border-orange-600/50 backdrop-blur-sm"
+                      style={{
+                        padding: "0.25rem 0.75rem",
+                        fontSize: "0.75rem",
+                      }}
+                    >
+                      {project.status}
+                    </Badge>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900/80 to-transparent">
+                    <span
+                      className="text-sm font-medium text-orange-300"
+                      style={{ fontSize: "0.875rem" }}
+                    >
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <CardContent
+                  className="flex flex-col justify-between flex-1 p-4"
                   style={{
-                    height: "400px",
+                    padding: "1rem",
+                    flex: "1",
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
-                  {/* Project Image */}
-                  <div
-                    className="relative overflow-hidden"
-                    style={{ height: "180px" }}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                  <div>
+                    <h3
+                      className="mb-2 text-lg font-bold text-orange-100 line-clamp-2"
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                        fontSize: "1.125rem",
+                        marginBottom: "0.5rem",
+                        lineHeight: "1.3",
+                        display: "-webkit-box",
+                        WebkitLineClamp: "2",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
                       }}
-                    />
-                    <div className="absolute top-3 right-3">
-                      <Badge
-                        className="px-3 py-1 text-xs font-medium text-orange-100 border bg-orange-800/90 border-orange-600/50 backdrop-blur-sm"
-                        style={{
-                          padding: "0.25rem 0.75rem",
-                          fontSize: "0.75rem",
-                        }}
-                      >
-                        {project.status}
-                      </Badge>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900/80 to-transparent">
-                      <span
-                        className="text-sm font-medium text-orange-300"
-                        style={{ fontSize: "0.875rem" }}
-                      >
-                        {project.category}
-                      </span>
+                    >
+                      {project.title}
+                    </h3>
+
+                    <p
+                      className="mb-3 text-sm text-gray-300 line-clamp-2"
+                      style={{
+                        fontSize: "0.875rem",
+                        marginBottom: "0.75rem",
+                        lineHeight: "1.4",
+                        display: "-webkit-box",
+                        WebkitLineClamp: "2",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {project.shortDescription}
+                    </p>
+
+                    {/* Tech Stack - Show only 3 main techs */}
+                    <div
+                      className="flex flex-wrap gap-1 mb-4"
+                      style={{ gap: "0.25rem", marginBottom: "1rem" }}
+                    >
+                      {project.tech.slice(0, 3).map((tech, techIndex) => (
+                        <Badge
+                          key={techIndex}
+                          className="px-2 py-1 text-xs border bg-slate-800/60 border-slate-600/40 text-slate-200"
+                          style={{
+                            padding: "0.25rem 0.5rem",
+                            fontSize: "0.7rem",
+                          }}
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <Badge
+                          className="px-2 py-1 text-xs text-orange-200 border bg-orange-800/40 border-orange-600/50"
+                          style={{
+                            padding: "0.25rem 0.5rem",
+                            fontSize: "0.7rem",
+                          }}
+                        >
+                          +{project.tech.length - 3}
+                        </Badge>
+                      )}
                     </div>
                   </div>
 
-                  {/* Card Content */}
-                  <CardContent
-                    className="flex flex-col justify-between flex-1 p-4"
+                  {/* View Details Button */}
+                  <Button
+                    onClick={() => setSelectedProject(project)}
+                    className="w-full text-sm font-medium text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-0"
                     style={{
-                      padding: "1rem",
-                      flex: "1",
-                      display: "flex",
-                      flexDirection: "column",
+                      padding: "0.75rem 1rem",
+                      fontSize: "0.875rem",
+                      width: "100%",
+                      outline: "none",
+                      border: "none",
+                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
                     }}
                   >
-                    <div>
-                      <h3
-                        className="mb-2 text-lg font-bold text-orange-100 line-clamp-2"
-                        style={{
-                          fontSize: "1.125rem",
-                          marginBottom: "0.5rem",
-                          lineHeight: "1.3",
-                          display: "-webkit-box",
-                          WebkitLineClamp: "2",
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {project.title}
-                      </h3>
-
-                      <p
-                        className="mb-3 text-sm text-gray-300 line-clamp-2"
-                        style={{
-                          fontSize: "0.875rem",
-                          marginBottom: "0.75rem",
-                          lineHeight: "1.4",
-                          display: "-webkit-box",
-                          WebkitLineClamp: "2",
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {project.shortDescription}
-                      </p>
-
-                      {/* Tech Stack - Show only 3 main techs */}
-                      <div
-                        className="flex flex-wrap gap-1 mb-4"
-                        style={{ gap: "0.25rem", marginBottom: "1rem" }}
-                      >
-                        {project.tech.slice(0, 3).map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            className="px-2 py-1 text-xs border bg-slate-800/60 border-slate-600/40 text-slate-200"
-                            style={{
-                              padding: "0.25rem 0.5rem",
-                              fontSize: "0.7rem",
-                            }}
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.tech.length > 3 && (
-                          <Badge
-                            className="px-2 py-1 text-xs text-orange-200 border bg-orange-800/40 border-orange-600/50"
-                            style={{
-                              padding: "0.25rem 0.5rem",
-                              fontSize: "0.7rem",
-                            }}
-                          >
-                            +{project.tech.length - 3}
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* View Details Button */}
-                    <Button
-                      onClick={() => setSelectedProject(project)}
-                      className="w-full text-sm font-medium text-white transition-all duration-300 bg-orange-600 border-0 hover:bg-orange-700 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-0"
-                      style={{
-                        padding: "0.75rem 1rem",
-                        fontSize: "0.875rem",
-                        width: "100%",
-                        outline: "none",
-                        border: "none",
-                        boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-                      }}
-                    >
-                      View Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </AnimatedContainer>
+                    View Details
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </SequentialCards>
 
           {/* Project Details Modal */}
           {selectedProject && (
