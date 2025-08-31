@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import UniversalBackground from "./components/UniversalBackground";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -28,30 +29,66 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 font-sans">
+    <UniversalBackground>
       {/* All sections in one scrollable container */}
-      <main className="pb-32">
-        <section id="home" className="min-h-screen">
-          <Home />
+      <main className="relative z-10">
+        {/* Home Section */}
+        <section
+          id="home"
+          className="min-h-screen flex items-center justify-center"
+        >
+          <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <Home />
+          </div>
         </section>
-        <section id="skills" className="min-h-screen">
-          <Skills />
+
+        {/* Skills Section */}
+        <section
+          id="skills"
+          className="min-h-screen flex items-center justify-center py-20"
+        >
+          <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <Skills />
+          </div>
         </section>
-        <section id="projects" className="min-h-screen">
-          <Projects />
+
+        {/* Projects Section */}
+        <section
+          id="projects"
+          className="min-h-screen flex items-center justify-center py-20"
+        >
+          <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <Projects />
+          </div>
         </section>
-        <section id="about" className="min-h-screen">
-          <About />
+
+        {/* About Section */}
+        <section
+          id="about"
+          className="min-h-screen flex items-center justify-center py-20"
+        >
+          <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <About />
+          </div>
         </section>
-        <section id="contact" className="min-h-screen">
-          <Contact />
+
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="min-h-screen flex items-center justify-center py-20"
+        >
+          <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+            <Contact />
+          </div>
         </section>
       </main>
+
+      {/* Navigation */}
       <Navigation
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-    </div>
+    </UniversalBackground>
   );
 };
 

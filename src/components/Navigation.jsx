@@ -113,25 +113,109 @@ const Navigation = ({ activeSection, setActiveSection }) => {
   };
 
   return (
-    <nav className="fixed z-50 transform -translate-x-1/2 bottom-4 sm:bottom-8 left-1/2">
-      <ul className="flex items-center gap-2 p-2 border border-gray-200 rounded-full shadow-lg bg-white/80 backdrop-blur-lg">
+    <nav className="fixed z-50 transform -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 left-1/2">
+      <ul
+        className="flex items-center gap-1 p-2 border border-gray-200/50 rounded-2xl shadow-2xl bg-white/90 backdrop-blur-xl"
+        style={{
+          backgroundColor: "rgba(15, 23, 42, 0.95)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(59, 130, 246, 0.3)",
+          boxShadow:
+            "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.2)",
+          gap: "0.25rem",
+          padding: "0.625rem",
+          borderRadius: "1.25rem",
+          "@media (min-width: 640px)": {
+            gap: "0.375rem",
+            padding: "0.75rem",
+            borderRadius: "1.75rem",
+          },
+        }}
+      >
         {navItems.map((item) => (
           <li key={item.id} className="relative">
             <button
               onClick={() => handleSectionClick(item.id)}
-              className={`relative flex flex-col items-center gap-1 w-16 px-2 py-3 rounded-full z-10 transition-colors duration-300 ${
+              className={`relative flex flex-col items-center gap-1 w-14 sm:w-16 md:w-18 px-2 sm:px-3 py-2 sm:py-3 rounded-lg sm:rounded-xl z-10 transition-all duration-300 focus:outline-none focus:ring-0 ${
                 activeSection === item.id
-                  ? "text-blue-600"
-                  : "text-gray-500 hover:text-gray-900"
+                  ? "text-blue-600 scale-105"
+                  : "text-gray-500 hover:text-gray-900 hover:scale-105"
               }`}
+              style={{
+                color: activeSection === item.id ? "#f97316" : "#9ca3af",
+                padding: "0.625rem 0.5rem",
+                width: "3.5rem",
+                gap: "0.25rem",
+                transform:
+                  activeSection === item.id ? "scale(1.05)" : "scale(1)",
+                transition: "all 0.3s ease",
+                borderRadius: "0.5rem",
+                outline: "none",
+                border: "none",
+                "@media (min-width: 640px)": {
+                  padding: "0.875rem 0.75rem",
+                  width: "4rem",
+                  gap: "0.375rem",
+                  borderRadius: "0.75rem",
+                },
+                "@media (min-width: 768px)": {
+                  width: "4.5rem",
+                },
+              }}
+              onMouseEnter={(e) => {
+                if (activeSection !== item.id) {
+                  e.target.style.color = "#f59e0b";
+                  e.target.style.transform = "scale(1.05)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeSection !== item.id) {
+                  e.target.style.color = "#9ca3af";
+                  e.target.style.transform = "scale(1)";
+                }
+              }}
             >
-              {item.icon}
-              <span className="text-xs font-semibold">{item.label}</span>
+              <div
+                style={{
+                  width: "1rem",
+                  height: "1rem",
+                  "@media (min-width: 640px)": {
+                    width: "1.25rem",
+                    height: "1.25rem",
+                  },
+                }}
+              >
+                {React.cloneElement(item.icon, {
+                  className: "w-4 h-4 sm:w-5 sm:h-5",
+                  style: { width: "1rem", height: "1rem" },
+                })}
+              </div>
+              <span
+                className="text-xs font-semibold hidden sm:block"
+                style={{
+                  fontSize: "0.625rem",
+                  fontWeight: "600",
+                  "@media (min-width: 640px)": {
+                    fontSize: "0.75rem",
+                  },
+                }}
+              >
+                {item.label}
+              </span>
             </button>
             {activeSection === item.id && (
               <motion.div
                 layoutId="active-pill"
-                className="absolute inset-0 z-0 bg-blue-100 rounded-full"
+                className="absolute inset-0 z-0 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg sm:rounded-xl shadow-sm"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)",
+                  borderRadius: "0.5rem",
+                  boxShadow: "0 4px 6px -1px rgba(251, 146, 60, 0.3)",
+                  "@media (min-width: 640px)": {
+                    borderRadius: "0.75rem",
+                  },
+                }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             )}

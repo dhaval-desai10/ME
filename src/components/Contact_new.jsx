@@ -105,90 +105,76 @@ const Contact = () => {
 
   return (
     <div className="relative min-h-screen">
+      {/* Full Screen Background Component - New Blue Theme */}
+      <div className="fixed inset-0 w-full h-full bg-gradient-to-br from-blue-900/20 via-slate-900 to-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-800/10 via-slate-900/90 to-black/95"></div>
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(147, 197, 253, 0.2) 1px, transparent 0)",
+            backgroundSize: "50px 50px",
+          }}
+        ></div>
+        <div className="absolute top-0 left-0 w-1/3 rounded-full h-1/3 bg-gradient-to-br from-blue-500/5 to-transparent filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-1/2 rounded-full h-1/2 bg-gradient-to-tl from-cyan-600/8 to-transparent filter blur-3xl"></div>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 min-h-screen">
-        <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 md:px-8 lg:px-12 sm:py-20 md:py-24">
+        <div className="max-w-6xl px-6 py-24 mx-auto md:px-12 lg:px-16">
           {/* Header */}
-          <div className="mb-12 text-center sm:mb-16 md:mb-20">
-            <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl sm:mb-8">
+          <div className="mb-20 text-center">
+            <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               Get In <span className="text-orange-400">Touch</span>
             </h2>
-            <p className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl sm:max-w-4xl">
+            <p className="max-w-4xl mx-auto text-lg leading-relaxed text-gray-300 md:text-xl">
               I'm always open to discussing new opportunities, interesting
               projects, or just having a chat about technology
             </p>
           </div>
 
           <div
-            className="grid grid-cols-1 gap-8 lg:grid-cols-2 sm:gap-12"
-            style={{ gap: "2rem" }}
+            className="grid grid-cols-1 lg:grid-cols-2"
+            style={{ gap: "3rem" }}
           >
             {/* Contact Information */}
             <div
-              className="space-y-8"
-              style={{
-                gap: "1.5rem",
-                display: "flex",
-                flexDirection: "column",
-              }}
+              style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
             >
               {/* Contact Cards */}
-              <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-                <CardHeader
-                  style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
-                >
-                  <CardTitle
-                    className="text-xl font-bold text-orange-100"
-                    style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                  >
+              <Card className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl">
+                <CardHeader style={{ padding: "2rem", paddingBottom: "1rem" }}>
+                  <CardTitle className="text-2xl font-bold text-orange-100">
                     📞 Contact Information
                   </CardTitle>
                 </CardHeader>
                 <CardContent
-                  className="space-y-6"
                   style={{
-                    padding: "0 1.25rem 1.25rem 1.25rem",
-                    gap: "0.75rem",
+                    padding: "0 2rem 2rem 2rem",
                     display: "flex",
                     flexDirection: "column",
+                    gap: "1.5rem",
                   }}
                 >
                   {contactInfo.map((contact, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-4"
-                      style={{
-                        padding: "0.875rem",
-                        backgroundColor: "rgba(51, 65, 85, 0.3)",
-                        borderRadius: "0.5rem",
-                        gap: "0.875rem",
-                      }}
+                      className="flex items-center transition-all duration-300 border bg-slate-800/40 border-slate-600/30 rounded-xl hover:bg-orange-800/30 hover:border-orange-600/50"
+                      style={{ gap: "1rem", padding: "1.25rem" }}
                     >
                       <div
                         className={`w-14 h-14 bg-gradient-to-br ${contact.bgColor} border ${contact.borderColor} rounded-xl flex items-center justify-center text-2xl`}
-                        style={{
-                          width: "2.5rem",
-                          height: "2.5rem",
-                          fontSize: "1.125rem",
-                        }}
                       >
                         {contact.icon}
                       </div>
-                      <div style={{ lineHeight: "1.4" }}>
-                        <p
-                          className="mb-1 font-medium text-orange-100"
-                          style={{
-                            fontSize: "0.9rem",
-                            marginBottom: "0.25rem",
-                            fontWeight: "600",
-                          }}
-                        >
+                      <div>
+                        <p className="mb-1 font-medium text-orange-100">
                           {contact.label}
                         </p>
                         <a
                           href={contact.href}
                           className="text-gray-300 transition-colors hover:text-orange-300"
-                          style={{ fontSize: "0.85rem", lineHeight: "1.3" }}
                         >
                           {contact.value}
                         </a>
@@ -200,42 +186,25 @@ const Contact = () => {
 
               {/* Social Links */}
               <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-                <CardHeader
-                  style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
-                >
-                  <CardTitle
-                    className="text-xl font-bold text-orange-100"
-                    style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                  >
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold text-orange-100">
                     🔗 Connect With Me
                   </CardTitle>
                 </CardHeader>
-                <CardContent style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}>
-                  <div
-                    className="grid grid-cols-2 gap-4"
-                    style={{ gap: "0.875rem" }}
-                  >
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-4">
                     {socialLinks.map((social, index) => (
                       <a
                         key={index}
                         href={social.href}
                         className={`flex items-center gap-3 p-4 bg-gradient-to-br ${social.bg} border ${social.border} rounded-lg hover:scale-105 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 transition-all duration-300 group`}
-                        style={{
-                          padding: "0.875rem",
-                          gap: "0.5rem",
-                          borderRadius: "0.5rem",
-                        }}
                       >
                         <div
                           className={`${social.color} group-hover:text-orange-100 transition-colors`}
-                          style={{ fontSize: "1.125rem" }}
                         >
                           {social.icon}
                         </div>
-                        <span
-                          className="text-sm font-medium text-gray-300 transition-colors group-hover:text-orange-100"
-                          style={{ fontSize: "0.8rem", fontWeight: "500" }}
-                        >
+                        <span className="text-sm font-medium text-gray-300 transition-colors group-hover:text-orange-100">
                           {social.name}
                         </span>
                       </a>
@@ -247,35 +216,17 @@ const Contact = () => {
 
             {/* Contact Form */}
             <Card className="transition-all duration-300 border-2 bg-orange-900/20 backdrop-blur-sm border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 rounded-xl">
-              <CardHeader
-                style={{ padding: "1.25rem", paddingBottom: "0.5rem" }}
-              >
-                <CardTitle
-                  className="text-xl font-bold text-orange-100"
-                  style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}
-                >
+              <CardHeader>
+                <CardTitle className="text-xl font-bold text-orange-100">
                   📧 Send Me a Message
                 </CardTitle>
               </CardHeader>
-              <CardContent style={{ padding: "0 1.25rem 1.25rem 1.25rem" }}>
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                  style={{
-                    gap: "1rem",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <div style={{ marginBottom: "1rem" }}>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
                     <label
                       htmlFor="name"
                       className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.85rem",
-                        marginBottom: "0.4rem",
-                        fontWeight: "500",
-                      }}
                     >
                       Your Name
                     </label>
@@ -288,19 +239,13 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                       placeholder="Enter your full name"
-                      style={{ padding: "0.65rem", fontSize: "0.85rem" }}
                     />
                   </div>
 
-                  <div style={{ marginBottom: "1.25rem" }}>
+                  <div>
                     <label
                       htmlFor="email"
                       className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
                     >
                       Email Address
                     </label>
@@ -313,19 +258,13 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                       placeholder="Enter your email address"
-                      style={{ padding: "0.75rem", fontSize: "0.9rem" }}
                     />
                   </div>
 
-                  <div style={{ marginBottom: "1.25rem" }}>
+                  <div>
                     <label
                       htmlFor="subject"
                       className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
                     >
                       Subject
                     </label>
@@ -338,19 +277,13 @@ const Contact = () => {
                       required
                       className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                       placeholder="What's this about?"
-                      style={{ padding: "0.75rem", fontSize: "0.9rem" }}
                     />
                   </div>
 
-                  <div style={{ marginBottom: "1.5rem" }}>
+                  <div>
                     <label
                       htmlFor="message"
                       className="block mb-3 text-sm font-medium text-orange-100"
-                      style={{
-                        fontSize: "0.9rem",
-                        marginBottom: "0.5rem",
-                        fontWeight: "500",
-                      }}
                     >
                       Message
                     </label>
@@ -363,11 +296,6 @@ const Contact = () => {
                       rows={5}
                       className="w-full px-4 py-3 text-gray-200 placeholder-gray-400 transition-all duration-300 border rounded-lg resize-none bg-slate-800/40 border-slate-600/30 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                       placeholder="Tell me about your project or just say hello!"
-                      style={{
-                        padding: "0.75rem",
-                        fontSize: "0.9rem",
-                        minHeight: "6rem",
-                      }}
                     />
                   </div>
 
@@ -375,18 +303,12 @@ const Contact = () => {
                     type="submit"
                     size="lg"
                     className="flex items-center justify-center w-full gap-3 px-6 py-4 text-lg font-semibold text-white transition-all duration-300 bg-orange-600 border-2 border-orange-600 hover:bg-orange-700 hover:border-orange-700"
-                    style={{
-                      padding: "1rem 1.25rem",
-                      fontSize: "1rem",
-                      gap: "0.5rem",
-                    }}
                   >
                     <svg
                       className="w-5 h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
-                      style={{ width: "1.25rem", height: "1.25rem" }}
                     >
                       <path
                         strokeLinecap="round"
@@ -404,14 +326,11 @@ const Contact = () => {
 
           {/* Quick Response Note */}
           <Card
-            className="mt-16 text-center transition-all duration-300 border-2 bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-sm border-slate-600/30 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 rounded-xl"
-            style={{ marginTop: "2rem" }}
+            className="text-center transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl"
+            style={{ marginTop: "4rem" }}
           >
-            <CardContent className="p-8" style={{ padding: "1.25rem" }}>
-              <p
-                className="text-lg leading-relaxed text-gray-300"
-                style={{ fontSize: "0.9rem", lineHeight: "1.4" }}
-              >
+            <CardContent style={{ padding: "2rem" }}>
+              <p className="text-lg leading-relaxed text-gray-300">
                 💬 <strong className="text-orange-100">Quick Response:</strong>{" "}
                 I typically respond to messages within 24 hours. For urgent
                 matters, feel free to reach out via phone or WhatsApp.

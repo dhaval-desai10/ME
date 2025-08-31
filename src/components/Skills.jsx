@@ -1,211 +1,365 @@
 import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-      ),
+      icon: "💻",
       skills: ["C/C++", "JavaScript", "Python", "Java"],
-      color: "from-blue-500 to-blue-600",
+      description: "Core programming languages I work with",
     },
     {
       title: "Frontend Development",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
+      icon: "🎨",
       skills: ["React.js", "HTML5", "CSS3", "Tailwind CSS"],
-      color: "from-emerald-500 to-emerald-600",
+      description: "Building beautiful user interfaces",
     },
     {
       title: "Backend Development",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-          />
-        </svg>
-      ),
+      icon: "⚙️",
       skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL"],
-      color: "from-purple-500 to-purple-600",
+      description: "Server-side development and databases",
     },
     {
       title: "Tools & Technologies",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      ),
+      icon: "🛠️",
       skills: ["Git/GitHub", "VS Code", "Postman", "Figma"],
-      color: "from-orange-500 to-orange-600",
+      description: "Development tools and workflow",
     },
   ];
 
   const achievements = [
-    { number: "250+", label: "Problems Solved", desc: "LeetCode & CodeChef" },
-    { number: "1600+", label: "CodeChef Rating", desc: "3-Star Coder" },
-    { number: "8.7", label: "Current CGPA", desc: "CSE @ DEPSTAR" },
+    {
+      number: "250+",
+      label: "Problems Solved",
+      desc: "LeetCode & CodeChef",
+      icon: "💻",
+    },
+    {
+      number: "1600+",
+      label: "CodeChef Rating",
+      desc: "3-Star Coder",
+      icon: "⭐",
+    },
+    { number: "8.7", label: "Current CGPA", desc: "CSE @ DEPSTAR", icon: "🎓" },
+  ];
+
+  const focusAreas = [
+    "Advanced React Patterns",
+    "DevOps & Cloud Deployment",
+    "System Design & Scalability",
+    "Machine Learning Fundamentals",
+  ];
+
+  const highlights = [
+    "Hackathon Participant - Odoo x MSU 2025",
+    "Full-stack Project Portfolio",
+    "Competitive Programming Enthusiast",
+    "Open Source Contributor",
   ];
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="w-full px-8 py-24 mx-auto max-w-7xl">
-        {/* Header Section */}
-        <div className="mb-20 text-center">
-          <h2 className="mb-6 text-5xl font-bold text-gray-900">
-            Skills &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Expertise
-            </span>
-          </h2>
-          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
-            Technologies and tools I use to build modern, scalable applications
-            and solve complex problems
-          </p>
-        </div>
+    <div className="relative min-h-screen">
+      {/* Content */}
+      <div className="relative z-10 min-h-screen">
+        <div className="max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24 mx-auto">
+          {/* Header */}
+          <div className="mb-12 sm:mb-16 text-center">
+            <h2 className="mb-6 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              Skills & <span className="text-orange-400">Expertise</span>
+            </h2>
+            <p className="max-w-3xl sm:max-w-4xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 px-4">
+              Technologies and tools I use to build modern, scalable
+              applications
+            </p>
+          </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 gap-8 mb-20 md:grid-cols-2">
-          {skillCategories.map((category, index) => (
-            <div
-              key={index}
-              className="p-8 transition-all duration-300 bg-white border border-gray-100 shadow-lg group rounded-2xl hover:shadow-xl hover:border-gray-200"
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div
-                  className={`p-4 rounded-xl bg-gradient-to-r ${category.color} text-white group-hover:scale-110 transition-transform duration-300`}
+          {/* Skills Grid - Responsive */}
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+            style={{ gap: "1.5rem", marginBottom: "3rem" }}
+          >
+            {skillCategories.map((category, index) => (
+              <Card
+                key={index}
+                className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+                style={{
+                  padding: "1.5rem",
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                }}
+              >
+                <CardHeader
+                  style={{ padding: "1rem", paddingBottom: "0.75rem" }}
                 >
-                  {category.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {category.title}
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div
-                    key={skillIndex}
-                    className="flex items-center gap-3 p-4 transition-colors duration-200 rounded-lg bg-gray-50 hover:bg-gray-100"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                    <span className="font-medium text-gray-700">{skill}</span>
+                  <div className="flex items-center" style={{ gap: "1rem" }}>
+                    <div
+                      className="shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90"
+                      style={{
+                        padding: "0.75rem",
+                        minWidth: "50px",
+                        minHeight: "50px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <span style={{ fontSize: "1.5rem" }}>
+                        {category.icon}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle
+                        className="text-2xl font-bold text-orange-100 transition-colors group-hover:text-orange-200"
+                        style={{
+                          marginBottom: "0.5rem",
+                          fontSize: "1.125rem",
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {category.title}
+                      </CardTitle>
+                      <p
+                        className="text-base leading-relaxed text-gray-400"
+                        style={{ fontSize: "0.875rem", lineHeight: "1.5" }}
+                      >
+                        {category.description}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Achievements Section */}
-        <div className="p-12 mb-20 bg-white border border-gray-100 shadow-lg rounded-2xl">
-          <h3 className="mb-12 text-3xl font-bold text-center text-gray-900">
-            Achievements & Stats
-          </h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center">
-                <div className="mb-2 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  {achievement.number}
-                </div>
-                <div className="mb-1 text-xl font-semibold text-gray-900">
-                  {achievement.label}
-                </div>
-                <div className="text-gray-600">{achievement.desc}</div>
-              </div>
+                </CardHeader>
+                <CardContent style={{ padding: "0 1rem 1rem 1rem" }}>
+                  <div className="grid grid-cols-2" style={{ gap: "0.75rem" }}>
+                    {category.skills.map((skill, skillIndex) => (
+                      <div
+                        key={skillIndex}
+                        className="transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-600/40 hover:bg-orange-800/30 hover:border-orange-600/50 hover:shadow-lg group/skill"
+                        style={{ padding: "0.75rem" }}
+                      >
+                        <div
+                          className="flex items-center"
+                          style={{ gap: "0.5rem" }}
+                        >
+                          <div
+                            className="w-3 h-3 rounded-full shadow-sm bg-gradient-to-r from-orange-400 to-orange-500"
+                            style={{ width: "8px", height: "8px" }}
+                          ></div>
+                          <span
+                            className="text-sm font-medium transition-colors text-slate-200 group-hover/skill:text-orange-100"
+                            style={{ fontSize: "0.8rem" }}
+                          >
+                            {skill}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
 
-        {/* Learning Journey */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="p-8 border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl">
-            <h4 className="flex items-center gap-3 mb-6 text-2xl font-bold text-gray-900">
-              <span className="text-3xl">🎯</span>
-              Current Focus
-            </h4>
-            <ul className="space-y-4">
-              {[
-                "Advanced React Patterns & Architecture",
-                "DevOps & Cloud Deployment (AWS)",
-                "System Design & Scalability",
-                "Machine Learning Fundamentals",
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-2 h-2 mt-2 bg-blue-500 rounded-full"></div>
-                  <span className="font-medium text-gray-700">{item}</span>
-                </li>
+          {/* Achievements */}
+          <div style={{ marginBottom: "4rem" }}>
+            <h3
+              className="text-3xl font-bold text-center text-white"
+              style={{ marginBottom: "2rem", fontSize: "1.75rem" }}
+            >
+              Achievements
+            </h3>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3"
+              style={{ gap: "1.5rem", maxWidth: "900px", margin: "0 auto" }}
+            >
+              {achievements.map((achievement, index) => (
+                <Card
+                  key={index}
+                  className="text-center transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+                  style={{ maxWidth: "280px", margin: "0 auto" }}
+                >
+                  <CardContent style={{ padding: "1.5rem" }}>
+                    <div
+                      className="flex flex-col items-center"
+                      style={{ gap: "1rem" }}
+                    >
+                      <div
+                        className="transition-transform duration-300 shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90 group-hover:scale-105"
+                        style={{
+                          padding: "1rem",
+                          width: "50px",
+                          height: "50px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <span style={{ fontSize: "1.5rem" }}>
+                          {achievement.icon}
+                        </span>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.5rem",
+                        }}
+                      >
+                        <div
+                          className="text-4xl font-bold text-orange-400 transition-colors group-hover:text-orange-300"
+                          style={{ fontSize: "2rem" }}
+                        >
+                          {achievement.number}
+                        </div>
+                        <div
+                          className="text-lg font-semibold text-orange-100"
+                          style={{ fontSize: "1rem" }}
+                        >
+                          {achievement.label}
+                        </div>
+                        <div
+                          className="text-sm text-gray-400 border rounded-lg bg-slate-800/50 border-slate-700/30"
+                          style={{
+                            padding: "0.375rem 0.75rem",
+                            fontSize: "0.8rem",
+                          }}
+                        >
+                          {achievement.desc}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div className="p-8 border bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border-emerald-100">
-            <h4 className="flex items-center gap-3 mb-6 text-2xl font-bold text-gray-900">
-              <span className="text-3xl">🏆</span>
-              Highlights
-            </h4>
-            <ul className="space-y-4">
-              {[
-                "Hackathon Participant - Odoo x MSU 2025",
-                "Full-stack Project Portfolio",
-                "Competitive Programming Enthusiast",
-                "Open Source Contributor",
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-emerald-500"></div>
-                  <span className="font-medium text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Learning Journey */}
+          <div
+            className="grid grid-cols-1 gap-8 lg:grid-cols-2"
+            style={{ gap: "1.5rem", maxWidth: "800px", margin: "0 auto" }}
+          >
+            {/* Current Focus */}
+            <Card
+              className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+              style={{ maxWidth: "380px", margin: "0 auto" }}
+            >
+              <CardHeader style={{ padding: "1.5rem", paddingBottom: "1rem" }}>
+                <CardTitle
+                  className="flex items-center gap-4 text-2xl font-bold text-orange-100 transition-colors group-hover:text-orange-200"
+                  style={{ fontSize: "1.25rem", gap: "0.75rem" }}
+                >
+                  <div
+                    className="p-3 shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90"
+                    style={{
+                      padding: "0.75rem",
+                      width: "40px",
+                      height: "40px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <span style={{ fontSize: "1.25rem" }}>🎯</span>
+                  </div>
+                  Current Focus
+                </CardTitle>
+              </CardHeader>
+              <CardContent style={{ padding: "0 1.5rem 1.5rem 1.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.75rem",
+                  }}
+                >
+                  {focusAreas.map((item, index) => (
+                    <div
+                      key={index}
+                      className="p-4 transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-600/40 hover:bg-orange-800/30 hover:border-orange-600/50 hover:shadow-lg group/item"
+                      style={{ padding: "0.75rem" }}
+                    >
+                      <div
+                        className="flex items-center gap-3"
+                        style={{ gap: "0.5rem" }}
+                      >
+                        <div
+                          className="flex-shrink-0 w-3 h-3 rounded-full shadow-sm bg-gradient-to-r from-orange-400 to-orange-500"
+                          style={{ width: "8px", height: "8px" }}
+                        ></div>
+                        <span
+                          className="text-sm font-medium transition-colors text-slate-200 group-hover/item:text-orange-100"
+                          style={{ fontSize: "0.875rem" }}
+                        >
+                          {item}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Highlights */}
+            <Card
+              className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl group"
+              style={{ maxWidth: "380px", margin: "0 auto" }}
+            >
+              <CardHeader style={{ padding: "1.5rem", paddingBottom: "1rem" }}>
+                <CardTitle
+                  className="flex items-center gap-4 text-2xl font-bold text-orange-100 transition-colors group-hover:text-orange-200"
+                  style={{ fontSize: "1.25rem", gap: "0.75rem" }}
+                >
+                  <div
+                    className="p-3 shadow-lg rounded-2xl bg-gradient-to-br from-orange-500/90 to-orange-600/90"
+                    style={{
+                      padding: "0.75rem",
+                      width: "40px",
+                      height: "40px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <span style={{ fontSize: "1.25rem" }}>🏆</span>
+                  </div>
+                  Highlights
+                </CardTitle>
+              </CardHeader>
+              <CardContent style={{ padding: "0 1.5rem 1.5rem 1.5rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.75rem",
+                  }}
+                >
+                  {highlights.map((item, index) => (
+                    <div
+                      key={index}
+                      className="p-4 transition-all duration-300 border rounded-xl bg-slate-800/50 border-slate-600/40 hover:bg-orange-800/30 hover:border-orange-600/50 hover:shadow-lg group/item"
+                      style={{ padding: "0.75rem" }}
+                    >
+                      <div
+                        className="flex items-center gap-3"
+                        style={{ gap: "0.5rem" }}
+                      >
+                        <div
+                          className="flex-shrink-0 w-3 h-3 rounded-full shadow-sm bg-gradient-to-r from-orange-400 to-orange-500"
+                          style={{ width: "8px", height: "8px" }}
+                        ></div>
+                        <span
+                          className="text-sm font-medium transition-colors text-slate-200 group-hover/item:text-orange-100"
+                          style={{ fontSize: "0.875rem" }}
+                        >
+                          {item}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
