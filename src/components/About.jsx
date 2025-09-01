@@ -59,16 +59,16 @@ const About = () => {
     <div className="relative min-h-screen">
       {/* Content */}
       <div className="relative z-10 min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24">
+        <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 md:px-8 lg:px-12 sm:py-20 md:py-24">
           {/* Header */}
           <div
-            className="text-center mb-12 sm:mb-16 md:mb-20"
+            className="mb-12 text-center sm:mb-16 md:mb-20"
             style={{ marginBottom: "3rem" }}
           >
             <AnimatedHeading
               level="h2"
               animation="fadeRight"
-              className="text-3xl font-bold text-white mb-6 sm:mb-8"
+              className="mb-6 text-3xl font-bold text-white sm:mb-8"
               style={{
                 fontSize: "2.5rem",
                 marginBottom: "1.5rem",
@@ -79,7 +79,7 @@ const About = () => {
             </AnimatedHeading>
             <AnimatedSection animation="fadeUp" delay={0.3}>
               <p
-                className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed px-4"
+                className="max-w-3xl px-4 mx-auto text-base leading-relaxed text-gray-300 sm:text-lg"
                 style={{
                   fontSize: "1.125rem",
                   maxWidth: "600px",
@@ -96,7 +96,7 @@ const About = () => {
           {/* Main Content - Responsive with Staggered Animation */}
           <AnimatedSection animation="fadeUp" delay={0.5}>
             <div
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16"
+              className="grid grid-cols-1 gap-8 mb-12 lg:grid-cols-2 sm:gap-12 sm:mb-16"
               style={{
                 gap: "2rem",
                 marginBottom: "3rem",
@@ -114,14 +114,14 @@ const About = () => {
               >
                 <AnimatedCard delay={0.1}>
                   <Card
-                    className="bg-slate-900/60 backdrop-blur-sm border border-orange-600/30 hover:border-orange-500/50 transition-all duration-300 rounded-2xl shadow-2xl"
+                    className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl"
                     style={{ maxWidth: "420px", margin: "0 auto" }}
                   >
                     <CardHeader
                       style={{ padding: "1.5rem", paddingBottom: "1rem" }}
                     >
                       <CardTitle
-                        className="text-2xl font-bold text-orange-100 flex items-center"
+                        className="flex items-center text-2xl font-bold text-orange-100"
                         style={{ gap: "0.75rem", fontSize: "1.25rem" }}
                       >
                         <span style={{ fontSize: "1.5rem" }}>👨‍💻</span>
@@ -129,7 +129,7 @@ const About = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent
-                      className="text-gray-300 leading-relaxed"
+                      className="leading-relaxed text-gray-300"
                       style={{
                         padding: "0 1.5rem 1.5rem 1.5rem",
                         display: "flex",
@@ -175,7 +175,7 @@ const About = () => {
                 {/* Interests */}
                 <AnimatedCard delay={0.3}>
                   <Card
-                    className="bg-slate-900/60 backdrop-blur-sm border border-orange-600/30 hover:border-orange-500/50 transition-all duration-300 rounded-2xl shadow-2xl"
+                    className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl"
                     style={{ maxWidth: "420px", margin: "0 auto" }}
                   >
                     <CardHeader
@@ -203,7 +203,7 @@ const About = () => {
                             style={{ gap: "0.75rem" }}
                           >
                             <div
-                              className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 mt-2 flex-shrink-0"
+                              className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gradient-to-r from-orange-400 to-orange-500"
                               style={{
                                 width: "6px",
                                 height: "6px",
@@ -211,7 +211,7 @@ const About = () => {
                               }}
                             ></div>
                             <span
-                              className="text-gray-300 leading-relaxed"
+                              className="leading-relaxed text-gray-300"
                               style={{ fontSize: "0.9rem", lineHeight: "1.5" }}
                             >
                               {interest}
@@ -235,14 +235,14 @@ const About = () => {
                 {/* Education */}
                 <AnimatedCard delay={0.2}>
                   <Card
-                    className="bg-slate-900/60 backdrop-blur-sm border border-orange-600/30 hover:border-orange-500/50 transition-all duration-300 rounded-2xl shadow-2xl"
+                    className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl"
                     style={{ maxWidth: "420px", margin: "0 auto" }}
                   >
                     <CardHeader
                       style={{ padding: "1.5rem", paddingBottom: "1rem" }}
                     >
                       <CardTitle
-                        className="text-2xl font-bold text-orange-100 flex items-center"
+                        className="flex items-center text-2xl font-bold text-orange-100"
                         style={{ gap: "0.75rem", fontSize: "1.25rem" }}
                       >
                         <span style={{ fontSize: "1.5rem" }}>🎓</span>
@@ -258,7 +258,7 @@ const About = () => {
                       }}
                     >
                       <div
-                        className="border-l-4 border-orange-600/70 bg-gradient-to-r from-orange-800/20 to-transparent rounded-r-lg"
+                        className="border-l-4 rounded-r-lg border-orange-600/70 bg-gradient-to-r from-orange-800/20 to-transparent"
                         style={{ padding: "1rem", paddingLeft: "1rem" }}
                       >
                         <h4
@@ -286,7 +286,7 @@ const About = () => {
                       </div>
 
                       <div
-                        className="border-l-4 border-orange-500/70 bg-gradient-to-r from-orange-700/20 to-transparent rounded-r-lg"
+                        className="border-l-4 rounded-r-lg border-orange-500/70 bg-gradient-to-r from-orange-700/20 to-transparent"
                         style={{ padding: "1rem", paddingLeft: "1rem" }}
                       >
                         <h4
@@ -318,14 +318,14 @@ const About = () => {
                 {/* Achievements */}
                 <AnimatedCard delay={0.4}>
                   <Card
-                    className="bg-slate-900/60 backdrop-blur-sm border border-orange-600/30 hover:border-orange-500/50 transition-all duration-300 rounded-2xl shadow-2xl"
+                    className="transition-all duration-300 border shadow-2xl bg-slate-900/60 backdrop-blur-sm border-orange-600/30 hover:border-orange-500/50 rounded-2xl"
                     style={{ maxWidth: "420px", margin: "0 auto" }}
                   >
                     <CardHeader
                       style={{ padding: "1.5rem", paddingBottom: "1rem" }}
                     >
                       <CardTitle
-                        className="text-2xl font-bold text-orange-100 flex items-center"
+                        className="flex items-center text-2xl font-bold text-orange-100"
                         style={{ gap: "0.75rem", fontSize: "1.25rem" }}
                       >
                         <span style={{ fontSize: "1.5rem" }}>🏆</span>
@@ -343,11 +343,11 @@ const About = () => {
                         {achievements.map((achievement, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-4 p-3 bg-gradient-to-r from-slate-800/40 to-slate-900/40 border border-slate-600/30 rounded-lg hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 transition-all duration-200"
+                            className="flex items-start gap-4 p-3 transition-all duration-200 border rounded-lg bg-gradient-to-r from-slate-800/40 to-slate-900/40 border-slate-600/30 hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50"
                             style={{ gap: "0.75rem", padding: "0.75rem" }}
                           >
                             <span
-                              className="text-xl flex-shrink-0 mt-1"
+                              className="flex-shrink-0 mt-1 text-xl"
                               style={{
                                 fontSize: "1.125rem",
                                 marginTop: "0.125rem",
@@ -357,7 +357,7 @@ const About = () => {
                             </span>
                             <div>
                               <p
-                                className="font-medium text-orange-100 mb-1"
+                                className="mb-1 font-medium text-orange-100"
                                 style={{
                                   marginBottom: "0.25rem",
                                   fontSize: "0.9rem",
@@ -382,88 +382,6 @@ const About = () => {
             </div>
           </AnimatedSection>
 
-          {/* Stats Section */}
-          <AnimatedSection animation="fadeUp" delay={0.8}>
-            <Card
-              className="bg-orange-900/20 backdrop-blur-sm border-2 border-orange-800/30 hover:bg-orange-900/30 hover:border-orange-700/50 transition-all duration-300 rounded-xl text-center"
-              style={{ maxWidth: "700px", margin: "0 auto" }}
-            >
-              <CardHeader style={{ padding: "1.5rem", paddingBottom: "1rem" }}>
-                <CardTitle
-                  className="text-2xl md:text-3xl font-bold text-orange-100 mb-4"
-                  style={{ fontSize: "1.5rem", marginBottom: "1rem" }}
-                >
-                  ⚡ Quick Facts About Me
-                </CardTitle>
-              </CardHeader>
-              <CardContent style={{ padding: "0 1.5rem 1.5rem 1.5rem" }}>
-                <div
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8"
-                  style={{ gap: "1.5rem" }}
-                >
-                  {stats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className="p-6 bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-slate-600/30 rounded-xl hover:from-orange-800/30 hover:to-orange-900/30 hover:border-orange-600/50 transition-all duration-300 group"
-                      style={{ padding: "1.25rem" }}
-                    >
-                      <div
-                        className={`text-3xl md:text-4xl font-bold ${stat.color} mb-3 group-hover:scale-110 transition-transform duration-300`}
-                        style={{ fontSize: "2rem", marginBottom: "0.75rem" }}
-                      >
-                        {stat.value}
-                      </div>
-                      <p
-                        className="text-sm md:text-base text-gray-300 font-medium leading-relaxed"
-                        style={{ fontSize: "0.875rem" }}
-                      >
-                        {stat.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </AnimatedSection>
-
-          {/* Coding Profiles Section */}
-          <AnimatedSection animation="fadeUp" delay={1.0}>
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold text-orange-100 mb-6">
-                🔗 Connect with me on coding platforms
-              </h3>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-lg mx-auto">
-                <Button
-                  asChild
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
-                >
-                  <a
-                    href="https://leetcode.com/u/Dhaval_Desai_dd/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <span>LeetCode Profile</span>
-                    <FiExternalLink size={16} />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
-                >
-                  <a
-                    href="https://www.codechef.com/users/dhaval_desai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <span>CodeChef Profile</span>
-                    <FiExternalLink size={16} />
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </div>
     </div>
